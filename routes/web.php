@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('_template_back.layout');
-});
+// Route::get('/', function () {
+//     return view('_template_back.layout');
+// });
 
-//ROUTE BARU
-Route::resource('buku', BukuController::class);
+Route::get('/',[LoginController::class, 'login'])->name('login');
+Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
+Route::post('auth',[LoginController::class, 'auth'])->name('auth');// Untuk login
+
+//ROUTE crud buku
+Route::resource('buku', BukuController::class)->middleware('auth');//melempar user yang belum login bagi yang belum login
+Route::get('export_pdf_buku',[BukuController::class, 'export_pdf'])->name('export_pdf_buku');//menambah route buku pdf

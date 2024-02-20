@@ -20,15 +20,16 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header pb-0">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex my-auto btn-list justify-content-end">
                     <!---------route create buku ------>
                   <a href="{{ route('buku.create') }}" class="btn btn-primary">Tambah Data</a>
+                  <a href="{{ route('export_pdf_buku') }}" class="btn btn-danger">Export PDF</a>
                 </div>
                 @include('_component.pesan')
             </div>
             <div class="card-body mt-3"> 
                 <div class="table-responsive">
-                    <table class="table mg-b-0 text-md-nowrap">
+                    <table class="table table-bordered table-hover table-striped mg-b-0 text-md-nowrap">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -49,6 +50,10 @@
                                 <td>{{ $dt->tahun_terbit }}</td>
                                 <td>
                                     <a href="{{ route('buku.edit', $dt->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <form onsubmit="return confirm('Apakah Anda Yakin Akan Menghapus Data Ini?')"action="{{ route('buku.destroy',$dt->id)}}" method="post" class="d-inline">
+                                        @csrf @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

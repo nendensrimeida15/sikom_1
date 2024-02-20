@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BukuController extends Controller
 {
@@ -132,6 +133,21 @@ class BukuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Buku::find($id)->delete();
+        return back()->with('succes', 'Data Berhasil Di Hapus');
+    }
+    public function export_pdf()//membuat pdf
+    {
+        $data = Buku::orderBy('judul', 'asc');
+        $data = $data->get();
+
+        //membuka halaman yang ada di data buku di folder data buku
+        $pdf = PDF::loadview('data_buku.exportPdf', ['data'=>$data]);
+        $pdf->setPaper('a4', 'potrait');
+        $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+        //untuk memberi nama di file nya
+        $filename = date('YmsdHis') . '_data_buku';
+        //untuk mendowload
+        return $pdf->download($filename.'.pdf');
     }
 }
