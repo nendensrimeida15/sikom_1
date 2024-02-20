@@ -23,6 +23,7 @@
                 <div class="d-flex my-auto btn-list justify-content-end">
                     <!---------route create buku ------>
                   <a href="{{ route('buku.create') }}" class="btn btn-primary">Tambah Data</a>
+                  <a href="{{ route('buku.create') }}" class="btn btn-success">Export Excel</a>
                   <a href="{{ route('export_pdf_buku') }}" class="btn btn-danger">Export PDF</a>
                 </div>
                 @include('_component.pesan')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Buku;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BukuController extends Controller
 {
@@ -149,5 +150,21 @@ class BukuController extends Controller
         $filename = date('YmsdHis') . '_data_buku';
         //untuk mendowload
         return $pdf->download($filename.'.pdf');
+    }
+
+    public function export_excel(Request $request) 
+    {
+        //query mengambil data dari data base
+        $data = Buku::select('*');
+        $data = $data->get();
+
+        //untuk mengakses yang sudah di dowload
+        $export = new DataBukuExportView($data);
+    
+        //untuk memberi nama di file
+        $filename = date('YmdHis') . '_data_buku';
+
+        //untuk mendowload
+        return Excel::download($export, $filename . '.xlsx');
     }
 }
