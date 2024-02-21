@@ -27,3 +27,4 @@ Route::post('auth',[LoginController::class, 'auth'])->name('auth');// Untuk logi
 Route::resource('buku', BukuController::class)->middleware('auth');//melempar user yang belum login bagi yang belum login
 Route::get('export_pdf_buku',[BukuController::class, 'export_pdf'])->name('export_pdf_buku');//menambah route buku pdf
 Route::get('export_excel_buku',[BukuController::class, 'export_excel'])->name('export_excel_buku');//menambah route export excel
+Route::post('import_excel_buku',[BukuController::class, 'import_excel'])->name('import_excel_buku');//menambah route import excel

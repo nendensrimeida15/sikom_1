@@ -15,7 +15,7 @@
 										<img src="{{ asset('assets') }}/img/faces/aku.jpg" alt="user-img" class="rounded-circle mCS_img_loaded">
 									</div>
 									<div class="user-info">
-										<h6 class=" mb-0 text-dark">Petey Cruiser</h6>
+										<h6 class=" mb-0 text-dark">Nenden Sri Meida</h6>
 										<span class="text-muted app-sidebar__user-name text-sm">Administrator</span>
 									</div>
 								</div>
@@ -48,7 +48,7 @@
 						<div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"/></svg></div>
 						<ul class="side-menu ">
 							<li class="slide">
-								<a class="side-menu__item {{ request()->is('buku')? 'active':'' }}" href="{{route('buku.index') }}"><i class="side-menu__icon fe fe-airplay"></i><span class="side-menu__label">BUKU</span></a>
+								<a class="side-menu__item {{ request()->is('buku')? 'active':'' }}" href="{{route('buku.index') }}" title="Buku"><i class="side-menu__icon fe fe-book"></i><span class="side-menu__label">Buku</span></a>
 							</li>
 						</ul>
 

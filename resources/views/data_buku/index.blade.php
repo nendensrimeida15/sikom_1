@@ -23,8 +23,9 @@
                 <div class="d-flex my-auto btn-list justify-content-end">
                     <!---------route create buku ------>
                   <a href="{{ route('buku.create') }}" class="btn btn-primary">Tambah Data</a>
-                  <a href="{{ route('buku.create') }}" class="btn btn-success">Export Excel</a>
+                  <a href="{{ route('export_excel_buku') }}" class="btn btn-success">Export Excel</a>
                   <a href="{{ route('export_pdf_buku') }}" class="btn btn-danger">Export PDF</a>
+                  <a class="modal-effect btn btn-dark" data-bs-effect="effect-rotate-bottom" data-bs-toggle="modal" href="#modaldemo8">Import Excel</a>
                 </div>
                 @include('_component.pesan')
             </div>
@@ -66,4 +67,5 @@
     </div>
 </div>
     <!--/div-->
+    @include('data_buku.modal_import')
     @endsection

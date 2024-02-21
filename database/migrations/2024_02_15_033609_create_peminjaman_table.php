@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('buku_id')->constrained('bukus');
-            $table->foreignId('tanggal_peminjaman');
-            $table->foreignId('tanggal_pengembalian');
-            $table->foreignId('status_peminjam');
+            $table->date('tanggal_peminjaman');
+            $table->date('tanggal_pengembalian');
+            $table->string('status_peminjam');
             $table->timestamps();
         });
     }
