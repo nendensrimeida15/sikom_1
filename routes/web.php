@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,6 @@ Route::resource('buku', BukuController::class)->middleware('auth');//melempar us
 Route::get('export_pdf_buku',[BukuController::class, 'export_pdf'])->name('export_pdf_buku')->middleware('role:administrator');//menambah route buku pdf
 Route::get('export_excel_buku',[BukuController::class, 'export_excel'])->name('export_excel_buku');//menambah route export excel
 Route::post('import_excel_buku',[BukuController::class, 'import_excel'])->name('import_excel_buku')->middleware('role:administrator');//menambah route import excel
+
+//ROUTE PEMINJAMAN
+Route::resource('peminjaman', PeminjamanController::class);

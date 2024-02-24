@@ -49,6 +49,7 @@
 						<ul class="side-menu ">
 							<li class="slide">
 								<a class="side-menu__item {{ request()->is('buku')? 'active':'' }}" href="{{route('buku.index') }}" title="Buku"><i class="side-menu__icon fe fe-book"></i><span class="side-menu__label">Buku</span></a>
+								<a class="side-menu__item {{ request()->is('peminjaman')? 'active':'' }}" href="{{route('peminjaman.index') }}" title="Peminjaman"><i class="side-menu__icon fas fa-battery-empty"></i><span class="side-menu__label">Peminjaman</span></a>
 							</li>
 						</ul>
 

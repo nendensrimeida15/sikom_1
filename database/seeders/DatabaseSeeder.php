@@ -31,11 +31,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
-            'username' => 'petugas1',
-            'email' => 'petugas1@gmail.com',
+            'username' => 'admin3',
+            'email' => 'admin3@gmail.com',
             'password' => Hash::make('12345'),
-            'nama_lengkap' => 'petugas_satu',
-            'role' => 'petugas',
+            'nama_lengkap' => 'admin_tiga',
+            'role' => 'administrator',
             'verifikasi' => 'sudah',
             'alamat' => 'subang'
 
